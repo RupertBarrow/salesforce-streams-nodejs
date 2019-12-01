@@ -1,32 +1,31 @@
 {
-  "name": "salesforce-streams",
-  "version": "1.0.0",
-  "description": "A Node.js + jsforce app that displays a feed of Salesforce activity using CDC (change-data capture)",
-  "scripts": {
-    "dev": "node server.js -p $PORT",
-    "build": "next build",
-    "heroku-postbuild": "next build",
-    "start": "node server.js -p $PORT",
-    "test": "`npm bin`/ava **/*-test.js"
-  },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "dotenv": "^6.2.0",
-    "episode-7": "^1.1.2",
-    "express": "^4.16.4",
-    "javascript-time-ago": "^2.0.1",
-    "jsforce": "^1.9.1",
-    "jsforce-connection": "^2.1.0",
-    "next": "^8.0.1",
-    "react": "^16.8.2",
-    "react-addons-css-transition-group": "^15.6.2",
-    "react-dom": "^16.8.2",
-    "redis": "^2.8.0"
-  },
-  "engines": {
-    "node": "10.x"
-  },
-  "devDependencies": {
-    "ava": "^1.2.0"
-  }
+	"name": "salesforce-streams",
+	"version": "1.0.0",
+	"description": "A Node.js + jsforce app that displays a feed of Salesforce activity using CDC (change-data capture)",
+	"scripts": {
+		"dev": "node stream-consumer.js -p $PORT",
+		"build": "next build",
+		"heroku-postbuild": "next build",
+		"start": "node stream-consumer.js -p $PORT",
+		"test": "`npm bin`/ava **/*-test.js"
+	},
+	"dependencies": {
+		"classnames": "^2.2.6",
+		"dotenv": "^6.2.0",
+		"episode-7": "^1.1.2",
+		"express": "^4.16.4",
+		"javascript-time-ago": "^2.0.1",
+		"jsforce": "^1.9.1",
+		"jsforce-connection": "^2.1.0",
+		"next": "^8.0.1",
+		"react": "^16.8.2",
+		"react-addons-css-transition-group": "^15.6.2",
+		"react-dom": "^16.8.2"
+	},
+	"engines": {
+		"node": "10.x"
+	},
+	"devDependencies": {
+		"ava": "^1.2.0"
+	}
 }
