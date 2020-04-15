@@ -234,7 +234,7 @@ class IndexPage extends React.Component {
                 "salesforce",
                 (event) => {
                     const message = JSON.parse(event.data);
-                    console.log(`#### event 'salesforce' : message =  ${message}`);
+                    console.log("#### event 'salesforce' : message = ", JSON.stringify(message));
 
                     const [header] = getMessageParts(message);
                     const id = header.transactionKey || "none";
