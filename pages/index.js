@@ -205,6 +205,8 @@ class IndexPage extends React.Component {
                 (event) => {
                     if (lastBeat) clearTimeout(lastBeat);
                     this.setState({ heartbeating: true });
+                    console.log("#### event 'heartbeat'));
+
                     lastBeat = setTimeout(() => {
                         this.setState({ heartbeating: false });
                     }, 10000);
@@ -218,13 +220,14 @@ class IndexPage extends React.Component {
                 "status",
                 (event) => {
                     const status = JSON.parse(event.data);
+                    console.log("#### event 'status' : message = ", JSON.stringify(status, null, 4));
+
                     this.setState({
                         status: {
                             salesforceStreamingConnectionReason: null,
                             ...status,
                         },
                     });
-                    console.log(`#### event 'status' : this =  ${this}`);
                 },
                 false
             );
@@ -234,7 +237,7 @@ class IndexPage extends React.Component {
                 "salesforce",
                 (event) => {
                     const message = JSON.parse(event.data);
-                    console.log("#### event 'salesforce' : message = ", JSON.stringify(message));
+                    console.log("#### event 'salesforce' : message = ", JSON.stringify(message, null, 4));
 
                     const [header] = getMessageParts(message);
                     const id = header.transactionKey || "none";
@@ -254,6 +257,7 @@ class IndexPage extends React.Component {
             this.eventSource.addEventListener(
                 "error",
                 (err) => {
+                    console.log("### EventSource error", err);
                     console.error("### EventSource error", err);
                     this.eventSource.close();
                     setTimeout(() => {
