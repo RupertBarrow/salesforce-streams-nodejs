@@ -168,7 +168,7 @@ class IndexPage extends React.Component {
         lastBeat = setTimeout(() => {
           this.setState({ heartbeating: false });
         }, 10000);
-      }, false);
+      }, false); 
 
       // Drive "Salesforce Streaming API is on-line" indicator
       // and description from status events.

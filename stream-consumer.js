@@ -44,7 +44,7 @@ const messageCallback = (message, salesforceApi) => {
                 `Salesforce streams message callback error: ${err.stack}`
             );
         });
-};
+}; 
 
 // Subscribe to Salesforce Streaming API topics (OBSERVE_SALESFORCE_TOPIC_NAMES)
 Episode7.run(salesforceStreams, process.env, messageCallback).catch(err => {
