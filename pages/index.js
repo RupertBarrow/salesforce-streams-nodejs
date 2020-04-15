@@ -220,7 +220,7 @@ class IndexPage extends React.Component {
                 "status",
                 (event) => {
                     const status = JSON.parse(event.data);
-                    console.log("#### event 'status' : message = ", JSON.stringify(status, null, 4));
+                    console.log("#### event 'status' : status = ", JSON.stringify(status, null, 4));
 
                     this.setState({
                         status: {
@@ -257,7 +257,7 @@ class IndexPage extends React.Component {
             this.eventSource.addEventListener(
                 "error",
                 (err) => {
-                    console.log("### EventSource error", err);
+                    console.log  ("### EventSource error", err);
                     console.error("### EventSource error", err);
                     this.eventSource.close();
                     setTimeout(() => {
