@@ -205,7 +205,7 @@ class IndexPage extends React.Component {
                 (event) => {
                     if (lastBeat) clearTimeout(lastBeat);
                     this.setState({ heartbeating: true });
-                    console.log("#### event 'heartbeat'"));
+                    console.log("#### event 'heartbeat'");
 
                     lastBeat = setTimeout(() => {
                         this.setState({ heartbeating: false });
