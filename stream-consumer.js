@@ -31,7 +31,7 @@ const messageCallback = (message, salesforceApi) => {
     return fetchSalesforceDetails(message, salesforceApi)
         .then(decoratedMessage => {
             const data = JSON.stringify(decoratedMessage);
-            console.log(`####       👁‍🗨  Salesforce message ${JSON.stringify(decoratedMessage, null, 0)}`);
+            console.log(`####       👁‍🗨  Salesforce message ${JSON.stringify(decoratedMessage, null, 4)}`);
 
             // publish it to Redis "salesforce" channel
             redisMulti.publish("salesforce", data);
