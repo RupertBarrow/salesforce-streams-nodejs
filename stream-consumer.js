@@ -26,46 +26,12 @@ redisClient.on("error", function(err) {
 const messageCallback = (message, salesforceApi) => {
     const redisMulti = redisClient.multi();
     const execMultiAsync = promisify(redisMulti.exec).bind(redisMulti);
-
+    
     // Populate more details of the message (like User name & Account name)
     return fetchSalesforceDetails(message, salesforceApi)
         .then(decoratedMessage => {
             const data = JSON.stringify(decoratedMessage);
-            console.log(`####       👁‍🗨  Salesforce message ${data}`);
-
-            /*
-            {
-                "schema": "6s0jJJf1Znf29b8CBNbW_w",
-                "payload": {
-                    "LastModifiedDate": "2020-04-11T21:49:45.000Z",
-                    "Name": "Test for stream11",
-                    "ChangeEventHeader": {
-                        "commitNumber": 381575860761,
-                        "commitUser": "0051i0000015ttbAAA",
-                        "sequenceNumber": 1,
-                        "entityName": "Account",
-                        "changeType": "UPDATE",
-                        "changedFields": [
-                            "Name",
-                            "LastModifiedDate"
-                        ],
-                        "changeOrigin": "",
-                        "transactionKey": "000053db-de82-8699-8b56-8f52bbdd5185",
-                        "commitTimestamp": 1586641785000,
-                        "recordIds": [
-                            "0011i00000U359dAAB"
-                        ]
-                    }
-                },
-                "event": {
-                    "replayId": 3217203
-                },
-                "context": {
-                    "UserName": "Rupert Barrow",
-                    "AccountName": "Test for stream11"
-                }
-            }
-            */
+            console.log(`####       👁‍🗨  Salesforce message ${JSON.stringify(decoratedMessage, null, 0)}`);
 
             // publish it to Redis "salesforce" channel
             redisMulti.publish("salesforce", data);
