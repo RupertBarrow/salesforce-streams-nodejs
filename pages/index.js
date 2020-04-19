@@ -242,7 +242,7 @@ class IndexPage extends React.Component {
                     console.log(JSON.stringify(message, null, 4));
 
                     const [header, content, context] = getMessageParts(message);
-                    const id;
+                    var id;
 
                     // Salesforce Data ChangeEvent
                     if (context != {}) {
@@ -261,7 +261,7 @@ class IndexPage extends React.Component {
                     this.state.messages[id] = message;
                     this.setState({
                         messageIds: this.state.messageIds,
-                        messages: this.state.messages,
+                        messages:   this.state.messages,
                     });
                 },
                 false
