@@ -85,36 +85,38 @@ class IndexPage extends React.Component {
                     >
                         {decendingMessageIds.map((id) => {
                             const message = this.state.messages[id];
-                            //const [header, content, context] = getMessageParts(message);
+                            const [header, content, context] = getMessageParts(
+                                message
+                            );
                             return (
                                 <li
                                     key={id }
                                     style={
-                                        message.payload.ChangeEventHeader.changeType === "GAP_UPDATE"
+                                        header.changeType === "GAP_UPDATE"
                                             ? { display: "none" }
                                             : {}
                                     }
                                 >
                                     <p>
                                         {(
-                                            message.payload.ChangeEventHeader.changeType || "(Typeless)"
+                                            header.changeType || "(Typeless)"
                                         ).toLowerCase()}{" "}
                                         <strong>
-                                            {message.context[
-                                                `${message.payload.ChangeEventHeader.entityName}Name`
+                                            {context[
+                                                `${header.entityName}Name`
                                             ] || "Commande"}
                                         </strong>{" "}
                                         {(
-                                            message.payload.ChangeEventHeader.entityName || "Commande"
+                                            header.entityName || "Commande"
                                         ).toLowerCase()}
                                         <br />
                                         by{" "}
-                                        {message.context.UserName || "(No commit user)"}
+                                        {context.UserName || "(No commit user)"}
                                         {", "}
-                                        <span title={message.payload.LastModifiedDate}>
+                                        <span title={content.LastModifiedDate}>
                                             {this.timeAgo.format(
                                                 Date.parse(
-                                                    message.payload.LastModifiedDate
+                                                    content.LastModifiedDate
                                                 )
                                             ) || "(Dateless)"}
                                         </span>
@@ -239,8 +241,8 @@ class IndexPage extends React.Component {
                     console.log("#### event 'salesforce' : message = ");
                     console.log(JSON.stringify(message, null, 4));
 
-                    //const [header] = getMessageParts(message);
-                    const id = message.payload.ChangeEventHeader.transactionKey || message.event.replayId;
+                    const [header] = getMessageParts(message);
+                    const id = header.transactionKey || message.event.replayId;
                     console.log("#### id =  ", id);
 
                     // Collect message IDs into a Set to dedupe
@@ -278,7 +280,6 @@ class IndexPage extends React.Component {
     };
 }
 
-/*
 function getMessageParts(message) {
     const content = message.payload || {};
     const context = message.context || {};
@@ -286,6 +287,5 @@ function getMessageParts(message) {
 
     return [header, content, context];
 }
-*/
 
 export default IndexPage;
