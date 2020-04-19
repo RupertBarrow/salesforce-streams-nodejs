@@ -90,7 +90,7 @@ class IndexPage extends React.Component {
                             );
                             return (
                                 <li
-                                    key={header.transactionKey}
+                                    key={id }
                                     style={
                                         header.changeType === "GAP_UPDATE"
                                             ? { display: "none" }
@@ -104,10 +104,10 @@ class IndexPage extends React.Component {
                                         <strong>
                                             {context[
                                                 `${header.entityName}Name`
-                                            ] || Nameless}
+                                            ] || "Commande"}
                                         </strong>{" "}
                                         {(
-                                            header.entityName || "(nameless)"
+                                            header.entityName || "Commande"
                                         ).toLowerCase()}
                                         <br />
                                         by{" "}
