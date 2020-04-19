@@ -241,17 +241,8 @@ class IndexPage extends React.Component {
                     console.log("#### event 'salesforce' : message = ");
                     console.log(JSON.stringify(message, null, 4));
 
-                    const [header, content, context] = getMessageParts(message);
-                    var id;
-
-                    // Salesforce Data ChangeEvent
-                    if (context != {}) {
-                        const id = header.transactionKey || "none";
-                    } 
-                    // Salesforce custom event : Commande__c
-                    else {
-                        const id = message.event.replayId || "none";
-                    }
+                    const [header] = getMessageParts(message);
+                    const id = header.transactionKey || message.event.replayId;
                     console.log("#### id =  ", id);
 
                     // Collect message IDs into a Set to dedupe
