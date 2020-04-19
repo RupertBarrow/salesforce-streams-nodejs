@@ -220,7 +220,8 @@ class IndexPage extends React.Component {
                 "status",
                 (event) => {
                     const status = JSON.parse(event.data);
-                    console.log("#### event 'status' : status = ", JSON.stringify(status, null, 4));
+                    console.log("#### event 'status' : status = ");
+                    console.log(JSON.stringify(status, null, 4));
 
                     this.setState({
                         status: {
@@ -237,10 +238,12 @@ class IndexPage extends React.Component {
                 "salesforce",
                 (event) => {
                     const message = JSON.parse(event.data);
-                    console.log("#### event 'salesforce' : message = ", JSON.stringify(message, null, 4));
+                    console.log("#### event 'salesforce' : message = ");
+                    console.log(JSON.stringify(message, null, 4));
 
                     const [header] = getMessageParts(message);
                     const id = header.transactionKey || "none";
+                    console.log("#### id =  ", id);
 
                     // Collect message IDs into a Set to dedupe
                     this.state.messageIds.add(id);
