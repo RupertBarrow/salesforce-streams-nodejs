@@ -1,2 +1,2 @@
 web: node server.js
-stream_consumer: node stream-consumer.js
+stream_consumer: node salesforce-stream-consumer.js

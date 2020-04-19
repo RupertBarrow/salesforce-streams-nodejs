@@ -1,0 +1,51 @@
+2020-04-16T22:18:31.923218+00:00 heroku[stream_consumer.1]: State changed from starting to up
+2020-04-16T22:18:33.258681+00:00 app[stream_consumer.1]: -----> Initializing worker
+2020-04-16T22:18:33.261737+00:00 app[stream_consumer.1]: -----> Initializing Salesforce streams ☁️
+2020-04-16T22:18:33.653045+00:00 app[stream_consumer.1]: -----> Identity via access token: rupert.barrow@lilo.org
+2020-04-16T22:18:33.763679+00:00 app[stream_consumer.1]: -----> Subscribing to Salesforce topic /data/ChangeEvents
+2020-04-16T22:18:33.764083+00:00 app[stream_consumer.1]: -----> Subscribing to Salesforce topic /event/Command__e
+2020-04-16T22:18:33.767853+00:00 app[stream_consumer.1]:        ▶️  Now streaming /data/ChangeEvents…
+2020-04-16T22:18:33.770759+00:00 app[stream_consumer.1]:        ▶️  Now streaming /event/Command__e…
+2020-04-16T22:18:34.102314+00:00 app[web.1]: Node cluster master 4 is running
+2020-04-16T22:18:34.471877+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:34.575335+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:34.631365+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:34.687308+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:34.989212+00:00 heroku[web.1]: State changed from starting to up
+2020-04-16T22:18:34.928252+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:34.991407+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:34.997553+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:35.024079+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:35.057621+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:35.068264+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:35.087943+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:35.088851+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:35.103073+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:35.113937+00:00 app[web.1]: -----> Initializing server
+2020-04-16T22:18:35.138025+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:35.144943+00:00 app[web.1]: Listening on http://localhost:20319
+2020-04-16T22:18:42.653197+00:00 app[api]: Set maintenance mode off by user rupert.barrow@lilo.org
+2020-04-16T22:19:18.445951+00:00 heroku[router]: at=info method=GET path="/" host=rbw-salesforce-streams-nodejs.herokuapp.com request_id=ffe9a1ba-8745-41dd-8b43-ec43e311d662 fwd="78.230.62.3" dyno=web.1 connect=0ms service=240ms status=200 bytes=3279 protocol=https
+2020-04-16T22:19:18.595215+00:00 heroku[router]: at=info method=GET path="/_next/static/RJktznAuzGfAmOk1~_~FO/pages/_app.js" host=rbw-salesforce-streams-nodejs.herokuapp.com request_id=03c407c4-c488-41ce-b5a6-fc25d7eeee1f fwd="78.230.62.3" dyno=web.1 connect=0ms service=24ms status=200 bytes=3021 protocol=https
+2020-04-16T22:19:18.594080+00:00 heroku[router]: at=info method=GET path="/_next/static/RJktznAuzGfAmOk1~_~FO/pages/index.js" host=rbw-salesforce-streams-nodejs.herokuapp.com request_id=0cea9da3-c2c9-4a05-a2eb-60fdda5780ae fwd="78.230.62.3" dyno=web.1 connect=0ms service=25ms status=200 bytes=53296 protocol=https
+2020-04-16T22:20:12.757135+00:00 app[stream_consumer.1]: ### fetchSalesforceNameWithCache : sfid = 0051i0000015ttbAAA, type = User
+2020-04-16T22:20:12.757324+00:00 app[stream_consumer.1]: ### fetchSalesforceNameWithCache : sfid = 288449, type = Commande
+2020-04-16T22:20:12.953849+00:00 app[stream_consumer.1]: ####       👁‍🗨  Salesforce message {
+2020-04-16T22:20:12.953850+00:00 app[stream_consumer.1]:     "schema": "0GGZ3m3XkrPworAjxmDUUQ",
+2020-04-16T22:20:12.953850+00:00 app[stream_consumer.1]:     "payload": {
+2020-04-16T22:20:12.953851+00:00 app[stream_consumer.1]:         "CreatedById": "0051i0000015ttbAAA",
+2020-04-16T22:20:12.953851+00:00 app[stream_consumer.1]:         "Payload__c": "Détails de la commande3",
+2020-04-16T22:20:12.953852+00:00 app[stream_consumer.1]:         "Type__c": "Commande",
+2020-04-16T22:20:12.953852+00:00 app[stream_consumer.1]:         "CreatedDate": "2020-04-16T22:20:11.317Z"
+2020-04-16T22:20:12.953853+00:00 app[stream_consumer.1]:     },
+2020-04-16T22:20:12.953853+00:00 app[stream_consumer.1]:     "event": {
+2020-04-16T22:20:12.953853+00:00 app[stream_consumer.1]:         "replayId": 288449
+2020-04-16T22:20:12.953854+00:00 app[stream_consumer.1]:     },
+2020-04-16T22:20:12.953854+00:00 app[stream_consumer.1]:     "context": {
+2020-04-16T22:20:12.953854+00:00 app[stream_consumer.1]:         "UserName": "Rupert Barrow",
+2020-04-16T22:20:12.953854+00:00 app[stream_consumer.1]:         "CommandeName": "Détails de la commande3"
+2020-04-16T22:20:12.953855+00:00 app[stream_consumer.1]:     }
+2020-04-16T22:20:12.953855+00:00 app[stream_consumer.1]: }
+2020-04-16T22:20:12.956387+00:00 app[stream_consumer.1]:        ⏺  Save checkpoint 288449
+2020-04-16T22:20:13.050729+00:00 heroku[router]: at=info method=GET path="/_next/static/RJktznAuzGfAmOk1~_~FO/pages/_error.js" host=rbw-salesforce-streams-nodejs.herokuapp.com request_id=e642a6c5-471a-45fb-882c-8d7981f89347 fwd="78.230.62.3" dyno=web.1 connect=0ms service=18ms status=200 bytes=5192 protocol=https
+2020-04-16T22:20:14.158019+00:00 heroku[router]: sock=client at=warning code=H27 desc="Client Request Interrupted" method=GET path="/stream/messages" host=rbw-salesforce-streams-nodejs.herokuapp.com request_id=ded0d89e-9185-4b4a-861f-9f110815b824 fwd="78.230.62.3" dyno=web.1 connect=0ms service=55337ms status=499 bytes= protocol=https

@@ -1,8 +1,8 @@
-const Episode7 = require("episode-7");
-const redis = require("redis");
+const Episode7      = require("episode-7");
+const redis         = require("redis");
 const { promisify } = require("util");
 
-const salesforceStreams = require("./lib/salesforce-streams");
+const salesforceStreams      = require("./lib/salesforce-streams");
 const fetchSalesforceDetails = require("./lib/salesforce-fetch-details");
 
 console.log("-----> Initializing worker");
