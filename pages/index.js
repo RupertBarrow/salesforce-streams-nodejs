@@ -233,7 +233,7 @@ class IndexPage extends React.Component {
                 false
             );
 
-            // Receive Salesforce change events as they occur.
+            // Receive Salesforce  events as they occur.
             this.eventSource.addEventListener(
                 "salesforce",
                 (event) => {
@@ -241,12 +241,22 @@ class IndexPage extends React.Component {
                     console.log("#### event 'salesforce' : message = ");
                     console.log(JSON.stringify(message, null, 4));
 
-                    const [header] = getMessageParts(message);
-                    const id = header.transactionKey || "none";
+                    const [header, content, context] = getMessageParts(message);
+                    const id;
+
+                    // Salesforce Data ChangeEvent
+                    if (context != {}) {
+                        const id = header.transactionKey || "none";
+                    } 
+                    // Salesforce custom event : Commande__c
+                    else {
+                        const id = message.event.replayId || "none";
+                    }
                     console.log("#### id =  ", id);
 
                     // Collect message IDs into a Set to dedupe
                     this.state.messageIds.add(id);
+
                     // Collect message contents by ID
                     this.state.messages[id] = message;
                     this.setState({
@@ -283,6 +293,7 @@ function getMessageParts(message) {
     const content = message.payload || {};
     const context = message.context || {};
     const header = content.ChangeEventHeader || {};
+
     return [header, content, context];
 }
 
