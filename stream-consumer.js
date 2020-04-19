@@ -3,7 +3,7 @@ const redis = require("redis");
 const { promisify } = require("util");
 
 const salesforceStreams = require("./lib/salesforce-streams");
-const fetchSalesforceDetails = require("./lib/fetch-salesforce-details");
+const fetchSalesforceDetails = require("./lib/salesforce-fetch-details");
 
 console.log("-----> Initializing worker");
 
